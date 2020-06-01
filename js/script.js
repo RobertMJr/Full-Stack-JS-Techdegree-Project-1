@@ -10,10 +10,11 @@ project 1 - A Random Quote Generator
 /* quotes is an array of objects that store and organize data for every quote */
 const quotes = [
   {
-    quote: 'It does not do to dwell on dreams and forget to live.', // the actual quote
-    source: 'J.K. Rowling', // the person who said the quote
-    citation: 'Harry Potter and the Sorcerer\'s Stone', // refrence to the source of the quote
-    year: '1997' // year when the quote originated
+    quote: 'It does not do to dwell on dreams and forget to live.', 
+    source: 'J.K. Rowling', 
+    citation: 'Harry Potter and the Sorcerer\'s Stone', 
+    year: '1997',
+    category : '[Motivational]'
   },
   {
     quote: 'The fool doth think he is wise, but the wise man knows himself to be a fool.',
@@ -24,7 +25,7 @@ const quotes = [
   {
     quote: 'That which does not kill us makes us stronger.',
     source: 'Friedrich Nietzsche',
-    category: '[Inspirational]'
+    category: '[Inspirational, Motivational]'
   },
   {
     quote: 'Folks are usually about as happy as they make their minds up to be.',
