@@ -24,7 +24,7 @@ const quotes = [
   {
     quote: 'That which does not kill us makes us stronger.',
     source: 'Friedrich Nietzsche',
-    tags: 'Inspirational'
+    category: '[Inspirational]'
   },
   {
     quote: 'Folks are usually about as happy as they make their minds up to be.',
@@ -32,7 +32,8 @@ const quotes = [
   },
   {
     quote: 'Do one thing every day that scares you.',
-    source: 'Eleanor Roosevelt'
+    source: 'Eleanor Roosevelt',
+    category: '[Inspirational]'
   },
   {
     quote: 'You may say I\'m a dreamer, but I\'m not the only one. I hope someday you\'ll join us. And the world will live as one.',
@@ -54,7 +55,7 @@ function getRandomQuote() {
 
 
 
-/* `printQuote` selects a random object from the quotes array, builds a string of HTML and quote properties then uses the string to display its contents in the browser */
+/* `printQuote` selects a random object from the quotes array, builds a string of HTML and quote properties then uses the string to display its contents in the browser, it also  changes the background color of the html body by using a random rgb color*/
 
 function printQuote() {
   document.body.style.backgroundColor = `rgb(${selectRandColor()})`;
@@ -67,13 +68,14 @@ function printQuote() {
   if (randQuote.year !== undefined) {
     html += `<span class="year">${randQuote.year}</span>`;
   }
-  if (randQuote.tags !== undefined) {
-    html += `<span class="citation"> ${randQuote.tags}</span>`
+  if (randQuote.category !== undefined) {
+    html += `<span><small><i> ${randQuote.category}</i></small></span>`
   }
   html += `</p>`;
   document.getElementById('quote-box').innerHTML = html; 
 }
 
+/* `selectRandColor` randomly picks 3 values from 0 t0 255 adds them to an array and then returns them in an rgb format such as (0, 255, 255) */
 function selectRandColor() {
   let color = [];
   for (let i = 0; i < 3; i += 1) {
@@ -81,6 +83,9 @@ function selectRandColor() {
   }
   return color.join();
 }
+
+/* Use the setInterval method to automatically refresh quotes at 10 seconds intervals*/
+setInterval(printQuote, 10000);
 
 /***
  * click event listener for the print quote button
