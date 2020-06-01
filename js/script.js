@@ -76,7 +76,8 @@ function printQuote() {
   document.getElementById('quote-box').innerHTML = html; 
 }
 
-/* `selectRandColor` randomly picks 3 values from 0 t0 255 adds them to an array and then returns them in an rgb format such as (0, 255, 255) */
+/* `selectRandColor` randomly picks 3 values from 0 t0 255 adds them to an array and then returns them in an rgb format such as 0,255,255 */
+
 function selectRandColor() {
   let color = [];
   for (let i = 0; i < 3; i += 1) {
@@ -85,7 +86,8 @@ function selectRandColor() {
   return color.join();
 }
 
-/* Use the setInterval method to automatically refresh quotes at 10 seconds intervals*/
+/* Use the setInterval method to automatically refresh quotes at 10 seconds intervals */
+
 setInterval(printQuote, 10000);
 
 /***
