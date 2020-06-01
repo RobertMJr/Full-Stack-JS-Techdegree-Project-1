@@ -7,9 +7,7 @@ project 1 - A Random Quote Generator
   // Check the "Project Resources" section of the project instructions
   // Reach out in your Slack community - https://treehouse-fsjs-102.slack.com/app_redirect?channel=chit-chat
 
-/*** 
- * `quotes` array 
-***/
+/* quotes is an array of objects that store and organize data for every quote */
 const quotes = [
   {
     quote: 'It does not do to dwell on dreams and forget to live.', // the actual quote
@@ -25,7 +23,8 @@ const quotes = [
   },
   {
     quote: 'That which does not kill us makes us stronger.',
-    source: 'Friedrich Nietzsche'
+    source: 'Friedrich Nietzsche',
+    tags: 'Inspirational'
   },
   {
     quote: 'Folks are usually about as happy as they make their minds up to be.',
@@ -45,19 +44,20 @@ const quotes = [
   }
 ];
 
-/***
- * `getRandomQuote` function
-***/
+
+/* `getRandomQuote` selects a random index value and based on it returns a random object from the quotes array */
+
 function getRandomQuote() {
   const randIndex =  Math.floor(Math.random() * quotes.length);
   return quotes[randIndex];
 }
-console.log(getRandomQuote());
 
-/***
- * `printQuote` function
-***/
+
+
+/* `printQuote` selects a random object from the quotes array, builds a string of HTML and quote properties then uses the string to display its contents in the browser */
+
 function printQuote() {
+  document.body.style.backgroundColor = `rgb(${selectRandColor()})`;
   const randQuote = getRandomQuote();
   let html = `<p class="quote">${randQuote.quote}</p>
   <p class="source">${randQuote.source}`;
@@ -67,10 +67,20 @@ function printQuote() {
   if (randQuote.year !== undefined) {
     html += `<span class="year">${randQuote.year}</span>`;
   }
+  if (randQuote.tags !== undefined) {
+    html += `<span class="citation"> ${randQuote.tags}</span>`
+  }
   html += `</p>`;
   document.getElementById('quote-box').innerHTML = html; 
 }
 
+function selectRandColor() {
+  let color = [];
+  for (let i = 0; i < 3; i += 1) {
+    color.push(Math.floor(Math.random() * 256));
+  }
+  return color.join();
+}
 
 /***
  * click event listener for the print quote button
