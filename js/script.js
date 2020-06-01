@@ -56,7 +56,7 @@ function getRandomQuote() {
 
 
 
-/* `printQuote` selects a random object from the quotes array, builds a string of HTML and quote properties then uses the string to display its contents in the browser, it also  changes the background color of the html body by using a random rgb color*/
+/* `printQuote` selects a random object from the quotes array, builds a string of HTML and quote properties then uses the string to display its contents in the browser, it also  changes the background color of the html body by using a random rgb color created using the return value of the `selectRandColor` function*/
 
 function printQuote() {
   document.body.style.backgroundColor = `rgb(${selectRandColor()})`;
